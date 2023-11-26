@@ -1,7 +1,8 @@
 /*
- * ElemType.h
+ * @file ElemType.h
+ * @author Mannone Vito
  *
- *      Author: vitomannone
+ * @brief This software implements data type dependent functions to make a project data-type independent.
  *
  * This software module allows to implement a project that is data type independent:
  * it is sufficient to define different implementation in the .c file and different
@@ -10,6 +11,23 @@
  * to change.
  *
  * This module does not let you define different data types for a single project.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of
+ * this software and associated documentation files (the "Software"), to deal in
+ * the Software without restriction, including without limitation the rights to
+ * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+ * the Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+ * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+ * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+ * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 #ifndef ELEMTYPE_H_
 #define ELEMTYPE_H_
@@ -33,28 +51,46 @@ typedef struct UserDataStruct_t ElemType_t;
 /* End of data type definition */
 
 /*
- * Returns a value > 0 if el1 is greater than el2, value = 0 if inputs are equal, value < 0 if el1 < el2
- * No control of NULL value inputs
+ * @brief Compare two elements.
+ * Returns a value > 0 if el1 is greater than el2, value = 0
+ * 		if inputs are equal, value < 0 if el1 < el2
+ *
+ * @param el1, pointer to the first element
+ * @param el2, pointer to the second element to be compared
+ * @return int, a value > 0 if el1 > el2, value == 0 if el1 == el2,
+ * 		value < 0 otherwise
  */
 int elemCompare(const ElemType_t *el1, const ElemType_t *el2);
 
 /*
- * Returns a copy of the input elements
+ * @brief Returns a copy of the input elements
+ *
+ * @param src, pointer to the element to be copied
+ * @params dest, pointer in which the element will be copied
  */
 void elemCopy(const ElemType_t *src, ElemType_t *dest);
 
 /*
- * Swaps the elements content
+ * @brief Swaps the elements content
+ *
+ * @param el1, pointer to the first element
+ * @param el2, pointer to the second element
+ * @return void
  */
 void elemSwap(ElemType_t *el1, ElemType_t *el2);
 
 /*
- * Free the memory allocated for the element
+ * @brief Free the memory allocated for the element
+ *
+ * @param el, pointer to the element to be freed
  */
 void elemDel(ElemType_t *el);
 
 /*
- * Print element on file
+ * @brief Print element on file
+ *
+ * @param el, pointer to the element to be printed
+ * @param f, pointer to the file to be used to print the element
  */
 void elemWrite(const ElemType_t *el, FILE *f);
 
